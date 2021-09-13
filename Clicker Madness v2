@@ -1,0 +1,835 @@
+--https://www.roblox.com/games/5490351219/FREE-PET-Clicker-Madness
+
+local Library =
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/preztel/AzureLibrary/master/uilib.lua", true))()
+
+
+local Auto_Farm = Library:CreateTab("Auto Farm", "", true)
+
+Auto_Farm:CreateToggle("Otomatik Beast Mode", function(arg)
+    if arg then
+        _G.Condition = true -- true turns it on, false turns it off
+        while _G.Condition == true do
+        local A_1 = 1
+        local Event = game:GetService("ReplicatedStorage").Aero.AeroRemoteServices.BeastModeService.Begin
+        Event:FireServer(A_1)
+        wait(1)
+    end
+    else
+        _G.Condition = false -- true turns it on, false turns it off
+        while _G.Condition == true do
+        local A_1 = 1
+        local Event = game:GetService("ReplicatedStorage").Aero.AeroRemoteServices.BeastModeService.Begin
+        Event:FireServer(A_1)
+        wait(1)
+    end
+    end
+end)
+
+Auto_Farm:CreateToggle("Otomatik Tıklama", function(state)
+    if state then
+        _G.Condition = true -- true turns it on, false turns it off
+        while _G.Condition == true do
+        local A_1 = 1
+        local Event = game:GetService("ReplicatedStorage").Aero.AeroRemoteServices.ClickService.Click
+        Event:FireServer(A_1)
+        wait()
+    end
+    else
+        _G.Condition = false -- true turns it on, false turns it off
+        while _G.Condition == true do
+        local A_1 = 1
+        local Event = game:GetService("ReplicatedStorage").Aero.AeroRemoteServices.ClickService.Click
+        Event:FireServer(A_1)
+        wait()
+    end
+    end
+end)
+
+Auto_Farm:CreateToggle("TP Gems/Clicks", function(arg)
+    if arg then
+        _G.toggled = true
+        while _G.toggled == true do
+            wait(0)
+            game.Workspace.ScriptObjects.BasePickup.HumanoidRootPart.CFrame =
+                game.Workspace[game.Players.LocalPlayer.Name].HumanoidRootPart.CFrame
+        end
+    else
+        _G.toggled = false
+    end
+end)
+
+Auto_Farm:CreateToggle("Otomatik Boss", function(arg)
+    if arg then
+        _G.toggled = true
+        while _G.toggled == true do
+            wait(0)
+            game.Workspace[game.Players.LocalPlayer.Name].HumanoidRootPart.CFrame =
+                game.Workspace.ScriptObjects["Karen Keyboard"].HumanoidRootPart.CFrame * CFrame.new(0, 0, 5)
+            game.ReplicatedStorage.Aero.AeroRemoteServices.CursorCannonService.FireBoss:FireServer("Karen Keyboard")
+        end
+    else
+        _G.toggled = false
+    end
+end)
+
+Auto_Farm:CreateToggle("Otomatik Kill All", function(arg)
+    if arg then
+        _G.toggled = true
+        while _G.toggled == true do
+            wait(0)
+
+            for i, v in pairs(game.Players:GetChildren()) do
+                if v.Name ~= game:GetService("Players").LocalPlayer.Name then
+                    local A_1 = game:GetService("Players")[v.Name]
+                    local Event =
+                        game:GetService("ReplicatedStorage").Aero.AeroRemoteServices.CursorCannonService.FireCursor
+                    Event:FireServer(A_1)
+                end
+            end
+        end
+    else
+        _G.toggled = false
+    end
+end)
+
+local Auto_Normal_Upgrade = Library:CreateTab("Auto Normal Upgrade", "", true)
+
+Auto_Normal_Upgrade:CreateToggle("Tıklama Çarpanı", function(arg)
+    if arg then
+        _G.Condition = true -- true turns it on, false turns it off
+        while _G.Condition == true do
+local A_1 = "ClickMultiply"
+local Event = game:GetService("ReplicatedStorage").Aero.AeroRemoteServices.UpgradeService.BuyUpgrade
+Event:FireServer(A_1)    
+        wait()
+    end
+    else
+        _G.Condition = false -- true turns it on, false turns it off
+        while _G.Condition == true do
+            local A_1 = "ClickMultiply"
+            local Event = game:GetService("ReplicatedStorage").Aero.AeroRemoteServices.UpgradeService.BuyUpgrade
+            Event:FireServer(A_1)   
+        wait()
+    end
+    end
+end)
+
+Auto_Normal_Upgrade:CreateToggle("İmleç Hasarı", function(arg)
+    if arg then
+        _G.Condition = true -- true turns it on, false turns it off
+        while _G.Condition == true do
+            local A_1 = "CursorDamage"
+            local Event = game:GetService("ReplicatedStorage").Aero.AeroRemoteServices.UpgradeService.BuyUpgrade
+            Event:FireServer(A_1)
+        wait()
+    end
+    else
+        _G.Condition = false -- true turns it on, false turns it off
+        while _G.Condition == true do
+            local A_1 = "CursorDamage"
+            local Event = game:GetService("ReplicatedStorage").Aero.AeroRemoteServices.UpgradeService.BuyUpgrade
+            Event:FireServer(A_1)
+        wait()
+    end
+    end
+end)
+
+Auto_Normal_Upgrade:CreateToggle("Sağlık", function(arg)
+    if arg then
+        _G.Condition = true -- true turns it on, false turns it off
+        while _G.Condition == true do
+            local A_1 = "Health"
+            local Event = game:GetService("ReplicatedStorage").Aero.AeroRemoteServices.UpgradeService.BuyUpgrade
+            Event:FireServer(A_1)
+        wait()
+    end
+    else
+        _G.Condition = false -- true turns it on, false turns it off
+        while _G.Condition == true do
+            local A_1 = "Health"
+            local Event = game:GetService("ReplicatedStorage").Aero.AeroRemoteServices.UpgradeService.BuyUpgrade
+            Event:FireServer(A_1)
+        wait()
+    end
+    end
+end)
+
+Auto_Normal_Upgrade:CreateToggle("Zıplama Yükseltme", function(arg)
+    if arg then
+        _G.Condition = true -- true turns it on, false turns it off
+        while _G.Condition == true do
+            local A_1 = "JumpPower"
+            local Event = game:GetService("ReplicatedStorage").Aero.AeroRemoteServices.UpgradeService.BuyUpgrade
+            Event:FireServer(A_1)
+        wait()
+    end
+    else
+        _G.Condition = false -- true turns it on, false turns it off
+        while _G.Condition == true do
+            local A_1 = "JumpPower"
+            local Event = game:GetService("ReplicatedStorage").Aero.AeroRemoteServices.UpgradeService.BuyUpgrade
+            Event:FireServer(A_1)
+        wait()
+    end
+    end
+end)
+
+Auto_Normal_Upgrade:CreateToggle("Yardımcı Depolama", function(arg)
+    if arg then
+        _G.Condition = true -- true turns it on, false turns it off
+        while _G.Condition == true do
+            local A_1 = "PetStorage"
+            local Event = game:GetService("ReplicatedStorage").Aero.AeroRemoteServices.UpgradeService.BuyUpgrade
+            Event:FireServer(A_1)
+        wait()
+    end
+    else
+        _G.Condition = false -- true turns it on, false turns it off
+        while _G.Condition == true do
+            local A_1 = "PetStorage"
+            local Event = game:GetService("ReplicatedStorage").Aero.AeroRemoteServices.UpgradeService.BuyUpgrade
+            Event:FireServer(A_1)
+        wait()
+    end
+    end
+end)
+
+Auto_Normal_Upgrade:CreateToggle("Hız Yükseltmesi", function(arg)
+    if arg then
+        _G.Condition = true -- true turns it on, false turns it off
+        while _G.Condition == true do
+            local A_1 = "WalkSpeed"
+            local Event = game:GetService("ReplicatedStorage").Aero.AeroRemoteServices.UpgradeService.BuyUpgrade
+            Event:FireServer(A_1)
+        wait()
+    end
+    else
+        _G.Condition = false -- true turns it on, false turns it off
+        while _G.Condition == true do
+            local A_1 = "WalkSpeed"
+            local Event = game:GetService("ReplicatedStorage").Aero.AeroRemoteServices.UpgradeService.BuyUpgrade
+            Event:FireServer(A_1)
+        wait()
+    end
+    end
+end)
+
+local Auto_Super_Upgrade = Library:CreateTab("Auto Super Upgrade", "", true)
+
+Auto_Super_Upgrade:CreateToggle("+1 Boss Hasarı", function(arg)
+    if arg then
+        _G.Condition = true -- true turns it on, false turns it off
+        while _G.Condition == true do
+            local A_1 = "BossHit"
+            local Event = game:GetService("ReplicatedStorage").Aero.AeroRemoteServices.SuperUpgradeService.BuyUpgrade
+            Event:FireServer(A_1)
+        wait()
+    end
+    else
+        _G.Condition = false -- true turns it on, false turns it off
+        while _G.Condition == true do
+            local A_1 = "BossHit"
+            local Event = game:GetService("ReplicatedStorage").Aero.AeroRemoteServices.SuperUpgradeService.BuyUpgrade
+            Event:FireServer(A_1)
+        wait()
+    end
+    end
+end)
+
+Auto_Super_Upgrade:CreateToggle("x2 Hasar", function(arg)
+    if arg then
+        _G.Condition = true -- true turns it on, false turns it off
+        while _G.Condition == true do
+            local A_1 = "DoubleDamage"
+            local Event = game:GetService("ReplicatedStorage").Aero.AeroRemoteServices.SuperUpgradeService.BuyUpgrade
+            Event:FireServer(A_1)
+        wait()
+    end
+    else
+        _G.Condition = false -- true turns it on, false turns it off
+        while _G.Condition == true do
+            local A_1 = "DoubleDamage"
+            local Event = game:GetService("ReplicatedStorage").Aero.AeroRemoteServices.SuperUpgradeService.BuyUpgrade
+            Event:FireServer(A_1)
+        wait()
+    end
+    end
+end)
+
+Auto_Super_Upgrade:CreateToggle("x2 Sağlık", function(arg)
+    if arg then
+        _G.Condition = true -- true turns it on, false turns it off
+        while _G.Condition == true do
+            local A_1 = "DoubleHealth"
+            local Event = game:GetService("ReplicatedStorage").Aero.AeroRemoteServices.SuperUpgradeService.BuyUpgrade
+            Event:FireServer(A_1)
+        wait()
+    end
+    else
+        _G.Condition = false -- true turns it on, false turns it off
+        while _G.Condition == true do
+            local A_1 = "DoubleHealth"
+            local Event = game:GetService("ReplicatedStorage").Aero.AeroRemoteServices.SuperUpgradeService.BuyUpgrade
+            Event:FireServer(A_1)
+        wait()
+    end
+    end
+end)
+
+Auto_Super_Upgrade:CreateToggle("Yardımcı Alanı", function(arg)
+    if arg then
+        _G.Condition = true -- true turns it on, false turns it off
+        while _G.Condition == true do
+            local A_1 = "PetSlots"
+            local Event = game:GetService("ReplicatedStorage").Aero.AeroRemoteServices.SuperUpgradeService.BuyUpgrade
+            Event:FireServer(A_1)
+        wait()
+    end
+    else
+        _G.Condition = false -- true turns it on, false turns it off
+        while _G.Condition == true do
+            local A_1 = "PetSlots"
+            local Event = game:GetService("ReplicatedStorage").Aero.AeroRemoteServices.SuperUpgradeService.BuyUpgrade
+            Event:FireServer(A_1)
+        wait()
+    end
+    end
+end)
+
+Auto_Super_Upgrade:CreateToggle("Yardımcı Depolama", function(arg)
+    if arg then
+        _G.Condition = true -- true turns it on, false turns it off
+        while _G.Condition == true do
+            local A_1 = "PetStorage"
+            local Event = game:GetService("ReplicatedStorage").Aero.AeroRemoteServices.SuperUpgradeService.BuyUpgrade
+            Event:FireServer(A_1)
+        wait()
+    end
+    else
+        _G.Condition = false -- true turns it on, false turns it off
+        while _G.Condition == true do
+            local A_1 = "PetStorage"
+            local Event = game:GetService("ReplicatedStorage").Aero.AeroRemoteServices.SuperUpgradeService.BuyUpgrade
+            Event:FireServer(A_1)
+        wait()
+    end
+    end
+end)
+
+
+
+
+
+local Auto_Buy = Library:CreateTab("Auto Buy Simple", "", true)
+
+Auto_Buy:CreateToggle("Basic EGG (5K)", function(arg)
+    if arg then
+        _G.toggled = true
+        while _G.toggled == true do
+            wait(0)
+            game.ReplicatedStorage.Aero.AeroRemoteServices.EggService.Purchase:FireServer("basic")
+        end
+    else
+        _G.toggled = false
+    end
+end)
+
+Auto_Buy:CreateToggle("Lav EGG (2m)", function(arg)
+    if arg then
+        _G.toggled = true
+        while _G.toggled == true do
+            wait(0)
+            game.ReplicatedStorage.Aero.AeroRemoteServices.EggService.Purchase:FireServer("lava")
+        end
+    else
+        _G.toggled = false
+    end
+end)
+
+Auto_Buy:CreateToggle("Çöl EGG (20m)", function(arg)
+    if arg then
+        _G.toggled = true
+        while _G.toggled == true do
+            wait(0)
+            game.ReplicatedStorage.Aero.AeroRemoteServices.EggService.Purchase:FireServer("desert")
+        end
+    else
+        _G.toggled = false
+    end
+end)
+
+Auto_Buy:CreateToggle("Okyanus EGG (1b)", function(arg)
+    if arg then
+        _G.toggled = true
+        while _G.toggled == true do
+            wait(0)
+            game.ReplicatedStorage.Aero.AeroRemoteServices.EggService.Purchase:FireServer("ocean")
+        end
+    else
+        _G.toggled = false
+    end
+end)
+
+Auto_Buy:CreateToggle("Kış EGG (10b)", function(arg)
+    if arg then
+        _G.toggled = true
+        while _G.toggled == true do
+            wait(0)
+            game.ReplicatedStorage.Aero.AeroRemoteServices.EggService.Purchase:FireServer("winter")
+        end
+    else
+        _G.toggled = false
+    end
+end)
+
+Auto_Buy:CreateToggle("Toksik EGG (200b)", function(arg)
+    if arg then
+        _G.toggled = true
+        while _G.toggled == true do
+            wait(0)
+            game.ReplicatedStorage.Aero.AeroRemoteServices.EggService.Purchase:FireServer("toxic")
+        end
+    else
+        _G.toggled = false
+    end
+end)
+
+Auto_Buy:CreateToggle("Şeker EGG (5t)", function(arg)
+    if arg then
+        _G.toggled = true
+        while _G.toggled == true do
+            wait(0)
+            game.ReplicatedStorage.Aero.AeroRemoteServices.EggService.Purchase:FireServer("candy")
+        end
+    else
+        _G.toggled = false
+    end
+end)
+
+Auto_Buy:CreateToggle("Orman EGG (20t)", function(arg)
+    if arg then
+        _G.toggled = true
+        while _G.toggled == true do
+            wait(0)
+            game.ReplicatedStorage.Aero.AeroRemoteServices.EggService.Purchase:FireServer("forest")
+        end
+    else
+        _G.toggled = false
+    end
+end)
+
+Auto_Buy:CreateToggle("Fırtına EGG (1q)", function(arg)
+    if arg then
+        _G.toggled = true
+        while _G.toggled == true do
+            wait(0)
+            game.ReplicatedStorage.Aero.AeroRemoteServices.EggService.Purchase:FireServer("storm")
+        end
+    else
+        _G.toggled = false
+    end
+end)
+
+Auto_Buy:CreateToggle("Blok EGG (2q)", function(arg)
+    if arg then
+        _G.toggled = true
+        while _G.toggled == true do
+            wait(0)
+            game.ReplicatedStorage.Aero.AeroRemoteServices.EggService.Purchase:FireServer("blocky")
+        end
+    else
+        _G.toggled = false
+    end
+end)
+
+Auto_Buy:CreateToggle("Uzay EGG (10q)", function(arg)
+    if arg then
+        _G.toggled = true
+        while _G.toggled == true do
+            wait(0)
+            game.ReplicatedStorage.Aero.AeroRemoteServices.EggService.Purchase:FireServer("space")
+        end
+    else
+        _G.toggled = false
+    end
+end)
+
+Auto_Buy:CreateToggle("Dominus EGG (100q)", function(arg)
+    if arg then
+        _G.toggled = true
+        while _G.toggled == true do
+            wait(0)
+            game.ReplicatedStorage.Aero.AeroRemoteServices.EggService.Purchase:FireServer("dominus")
+        end
+    else
+        _G.toggled = false
+    end
+end)
+
+Auto_Buy:CreateToggle("Sonsuzluk EGG (625q)", function(arg)
+    if arg then
+        _G.toggled = true
+        while _G.toggled == true do
+            wait(0)
+            game.ReplicatedStorage.Aero.AeroRemoteServices.EggService.Purchase:FireServer("infinity")
+        end
+    else
+        _G.toggled = false
+    end
+end)
+
+Auto_Buy:CreateToggle("Gelecek EGG (30Q)", function(arg)
+    if arg then
+        _G.toggled = true
+        while _G.toggled == true do
+            wait(0)
+            game.ReplicatedStorage.Aero.AeroRemoteServices.EggService.Purchase:FireServer("future")
+        end
+    else
+        _G.toggled = false
+    end
+end)
+
+Auto_Buy:CreateToggle("Şehir City (87.50s)", function(arg)
+    if arg then
+        _G.toggled = true
+        while _G.toggled == true do
+            wait(0)
+            game.ReplicatedStorage.Aero.AeroRemoteServices.EggService.Purchase:FireServer("city")
+        end
+    else
+        _G.toggled = false
+    end
+end)
+
+Auto_Buy:CreateToggle("Ay EGG (87.50s)", function(arg)
+    if arg then
+        _G.toggled = true
+        while _G.toggled == true do
+            wait(0)
+            game.ReplicatedStorage.Aero.AeroRemoteServices.EggService.Purchase:FireServer("moon")
+        end
+    else
+        _G.toggled = false
+    end
+end)
+
+Auto_Buy:CreateToggle("Fire EGG (87.50s)", function(arg)
+    if arg then
+        _G.toggled = true
+        while _G.toggled == true do
+            wait(0)
+            game.ReplicatedStorage.Aero.AeroRemoteServices.EggService.Purchase:FireServer("fire")
+        end
+    else
+        _G.toggled = false
+    end
+end)
+
+Auto_Buy:CreateToggle("Valentines EGG (87.50s)", function(arg)
+    if arg then
+        _G.toggled = true
+        while _G.toggled == true do
+            wait(0)
+            game.ReplicatedStorage.Aero.AeroRemoteServices.EggService.Purchase:FireServer("valentines")
+        end
+    else
+        _G.toggled = false
+    end
+end)
+
+--Üçlü Satın Alma
+local Auto_Buy_Triple = Library:CreateTab("Auto Buy Triple", "", true)
+
+Auto_Buy_Triple:CreateToggle("Basic EGG (15K)", function(arg)
+    if arg then
+        _G.toggled = true
+        while _G.toggled == true do
+            wait(0)
+            game.ReplicatedStorage.Aero.AeroRemoteServices.EggService.PurchaseTriple:FireServer("basic")
+        end
+    else
+        _G.toggled = false
+    end
+end)
+
+Auto_Buy_Triple:CreateToggle("Lav EGG (6m)", function(arg)
+    if arg then
+        _G.toggled = true
+        while _G.toggled == true do
+            wait(0)
+            game.ReplicatedStorage.Aero.AeroRemoteServices.EggService.PurchaseTriple:FireServer("lava")
+        end
+    else
+        _G.toggled = false
+    end
+end)
+
+Auto_Buy_Triple:CreateToggle("Çöl EGG (60m)", function(arg)
+    if arg then
+        _G.toggled = true
+        while _G.toggled == true do
+            wait(0)
+            game.ReplicatedStorage.Aero.AeroRemoteServices.EggService.PurchaseTriple:FireServer("desert")
+        end
+    else
+        _G.toggled = false
+    end
+end)
+
+Auto_Buy_Triple:CreateToggle("Okyanus EGG (3b)", function(arg)
+    if arg then
+        _G.toggled = true
+        while _G.toggled == true do
+            wait(0)
+            game.ReplicatedStorage.Aero.AeroRemoteServices.EggService.PurchaseTriple:FireServer("ocean")
+        end
+    else
+        _G.toggled = false
+    end
+end)
+
+Auto_Buy_Triple:CreateToggle("Kış EGG (30b)", function(arg)
+    if arg then
+        _G.toggled = true
+        while _G.toggled == true do
+            wait(0)
+            game.ReplicatedStorage.Aero.AeroRemoteServices.EggService.PurchaseTriple:FireServer("winter")
+        end
+    else
+        _G.toggled = false
+    end
+end)
+
+Auto_Buy_Triple:CreateToggle("Toksik EGG (600b)", function(arg)
+    if arg then
+        _G.toggled = true
+        while _G.toggled == true do
+            wait(0)
+            game.ReplicatedStorage.Aero.AeroRemoteServices.EggService.PurchaseTriple:FireServer("toxic")
+        end
+    else
+        _G.toggled = false
+    end
+end)
+
+Auto_Buy_Triple:CreateToggle("Şeker EGG (15t)", function(arg)
+    if arg then
+        _G.toggled = true
+        while _G.toggled == true do
+            wait(0)
+            game.ReplicatedStorage.Aero.AeroRemoteServices.EggService.PurchaseTriple:FireServer("candy")
+        end
+    else
+        _G.toggled = false
+    end
+end)
+
+Auto_Buy_Triple:CreateToggle("Orman EGG (60t)", function(arg)
+    if arg then
+        _G.toggled = true
+        while _G.toggled == true do
+            wait(0)
+            game.ReplicatedStorage.Aero.AeroRemoteServices.EggService.PurchaseTriple:FireServer("forest")
+        end
+    else
+        _G.toggled = false
+    end
+end)
+
+Auto_Buy_Triple:CreateToggle("Fırtına EGG (3q)", function(arg)
+    if arg then
+        _G.toggled = true
+        while _G.toggled == true do
+            wait(0)
+            game.ReplicatedStorage.Aero.AeroRemoteServices.EggService.PurchaseTriple:FireServer("storm")
+        end
+    else
+        _G.toggled = false
+    end
+end)
+
+Auto_Buy_Triple:CreateToggle("Blok EGG (6q)", function(arg)
+    if arg then
+        _G.toggled = true
+        while _G.toggled == true do
+            wait(0)
+            game.ReplicatedStorage.Aero.AeroRemoteServices.EggService.PurchaseTriple:FireServer("blocky")
+        end
+    else
+        _G.toggled = false
+    end
+end)
+
+Auto_Buy_Triple:CreateToggle("Uzay EGG (30q)", function(arg)
+    if arg then
+        _G.toggled = true
+        while _G.toggled == true do
+            wait(0)
+            game.Auto_Buy_TripleReplicatedStorage.Aero.AeroRemoteServices.EggService.PurchaseTriple:FireServer("space")
+        end
+    else
+        _G.toggled = false
+    end
+end)
+
+Auto_Buy_Triple:CreateToggle("Dominus EGG (300q)", function(arg)
+    if arg then
+        _G.toggled = true
+        while _G.toggled == true do
+            wait(0)
+            game.ReplicatedStorage.Aero.AeroRemoteServices.EggService.PurchaseTriple:FireServer("dominus")
+        end
+    else
+        _G.toggled = false
+    end
+end)
+
+Auto_Buy_Triple:CreateToggle("Sonsuzluk EGG (1875q)", function(arg)
+    if arg then
+        _G.toggled = true
+        while _G.toggled == true do
+            wait(0)
+            game.ReplicatedStorage.Aero.AeroRemoteServices.EggService.PurchaseTriple:FireServer("infinity")
+        end
+    else
+        _G.toggled = false
+    end
+end)
+
+Auto_Buy_Triple:CreateToggle("Gelecek EGG (90Q)", function(arg)
+    if arg then
+        _G.toggled = true
+        while _G.toggled == true do
+            wait(0)
+            game.ReplicatedStorage.Aero.AeroRemoteServices.EggService.PurchaseTriple:FireServer("future")
+        end
+    else
+        _G.toggled = false
+    end
+end)
+
+Auto_Buy_Triple:CreateToggle("Şehir City (262.50s)", function(arg)
+    if arg then
+        _G.toggled = true
+        while _G.toggled == true do
+            wait(0)
+            game.ReplicatedStorage.Aero.AeroRemoteServices.EggService.PurchaseTriple:FireServer("city")
+        end
+    else
+        _G.toggled = false
+    end
+end)
+
+Auto_Buy_Triple:CreateToggle("Ay EGG (262.50s)", function(arg)
+    if arg then
+        _G.toggled = true
+        while _G.toggled == true do
+            wait(0)
+            game.ReplicatedStorage.Aero.AeroRemoteServices.EggService.PurchaseTriple:FireServer("moon")
+        end
+    else
+        _G.toggled = false
+    end
+end)
+
+Auto_Buy_Triple:CreateToggle("Fire EGG (262.50s)", function(arg)
+    if arg then
+        _G.toggled = true
+        while _G.toggled == true do
+            wait(0)
+            game.ReplicatedStorage.Aero.AeroRemoteServices.EggService.PurchaseTriple:FireServer("fire")
+        end
+    else
+        _G.toggled = false
+    end
+end)
+
+Auto_Buy_Triple:CreateToggle("Valentines EGG (262.50s)", function(arg)
+    if arg then
+        _G.toggled = true
+        while _G.toggled == true do
+            wait(0)
+            game.ReplicatedStorage.Aero.AeroRemoteServices.EggService.PurchaseTriple:FireServer("valentines")
+        end
+    else
+        _G.toggled = false
+    end
+end)
+
+
+
+local Teleport = Library:CreateTab("Teleport", "", true)
+
+Teleport:CreateButton("Başlangıç", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(552, 9, -510)
+end)
+
+Teleport:CreateButton("Lav", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1776, 7, -737)
+end)
+
+Teleport:CreateButton("Çöl", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2215, 7, 1088)
+end)
+
+Teleport:CreateButton("Okyanus", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-258, 9, 2141)
+end)
+
+Teleport:CreateButton("Kış", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2274, 7, 409)
+end)
+
+Teleport:CreateButton("Toksik", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1760, 7, -2043)
+end)
+
+Teleport:CreateButton("Şeker", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1344, 6, -2246)
+end)
+
+Teleport:CreateButton("Orman", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1765, 6, 3261)
+end)
+
+Teleport:CreateButton("Fırtına", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-284, 8, -2670)
+end)
+
+Teleport:CreateButton("Bloklar", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2925, 9, -782)
+end)
+
+Teleport:CreateButton("Uzay", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2394, 6, 2937)
+end)
+
+Teleport:CreateButton("Dominus", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1042, 6, 2255)
+end)
+
+Teleport:CreateButton("Sonsuzluk", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2252, 7, -1766)
+end)
+
+Teleport:CreateButton("Gelecek", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1067, 6, 518)
+end)
+
+Teleport:CreateButton("Şehir", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-965, 6, 1027)
+end)
+
+Teleport:CreateButton("Ay", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2394, 6, 1972)
+end)
+
+Teleport:CreateButton("Fire", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2274, 7, -737)
+end)
+
+Teleport:CreateButton("Vip", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(519, 10, -1342)
+end)
